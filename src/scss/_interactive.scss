@@ -1,0 +1,28 @@
+.button {
+  display: table;
+  height: 30px;
+  line-height: 40px;
+  display: inline-block;
+  border: 2px solid $ci-green;
+  border-radius: 5px;
+  padding: 0 15px 10px 15px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  transition: all 0.5s;
+
+  &:after {
+    content: '\203A';
+    font-weight: lighter;
+    color: $ci-green;
+    margin-left: 10px;
+    transition: all 0.5s;
+  }
+
+  &:hover {
+    border-color: $ci-green-dark;
+
+    &:after {
+      color: $ci-green-dark;
+    }
+  }
+}

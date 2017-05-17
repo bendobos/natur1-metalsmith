@@ -2,6 +2,7 @@ var Metalsmith  = require('metalsmith');
 var markdown    = require('metalsmith-markdown');
 var layouts     = require('metalsmith-layouts');
 var permalinks  = require('metalsmith-permalinks');
+var sass        = require('metalsmith-sass');
 
 Metalsmith(__dirname)
   .metadata({
@@ -16,6 +17,11 @@ Metalsmith(__dirname)
   .use(require('contentful-metalsmith')({
     'access_token': '48f2dd2572a725053eaa6e8455a6be9fa0c49b3fdb54beabbb515dfafe70a764',
     'space_id': 'uyzbu4k0mvui'
+  }))
+  .use(sass({
+    outputDir: 'css/',
+    sourceMap: true,
+    sourceMapContents: true
   }))
   .use(markdown())
   .use(permalinks())

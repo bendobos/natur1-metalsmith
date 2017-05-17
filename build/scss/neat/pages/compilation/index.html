@@ -1,0 +1,176 @@
+<h1 id="compilation-and-packaging">Compilation and Packaging</h1>
+<p><code>Neat</code> is clearly opiniated and favor <code>CoffeeScript</code> over pure <code>JavaScript</code>.
+As result, Neat provides tools to deal with compilation and packaging of
+<code>coffee</code> files for both node and browsers.</p>
+<p>These tools will allow you to perform operation on files at any point
+of the process. And you can even easily build your own operators.</p>
+<p>Most of the hard work is handled by the <code>cake build</code> task,
+also aliased as <code>cake compile</code>. Builds are defined in the project <code>Neatfile</code>.</p>
+<p>@toc</p>
+<h2 id="neatfile">Neatfile</h2>
+<p>Every Neat project have a <code>Neatfile</code> at its root. The <code>Neatfile</code> describes
+the build process to operate for a project.</p>
+<p>The default <code>Neatfile</code> look like this:</p>
+<pre><code>build &#39;lib&#39;, (build) -&gt;
+  # Use glob like expression to source the build
+  build.source &#39;src/**/*.coffee&#39;
+
+  # Invoke the processors you need
+  build
+  .do(compile bare: false)      # compile all the files
+  .then(remove &#39;lib&#39;)           # removes the lib directory
+  .then(relocate &#39;src&#39;, &#39;lib&#39;)  # relocate the compiled file to lib
+  .then(writeFiles)             # write files to their path
+</code></pre><p>The <code>build</code> call initiate a new build with the name <code>lib</code>. The build is then
+passed as argument to the block.</p>
+<p>The <code>build.source</code> method allow to defines the patterns for files to process
+in this build. As for the example, all the files with a coffee extension
+will be processed by the build.</p>
+<p>The <code>build.do</code> and <code>build.then</code> add operations in the build stack.
+Each of these operation will be executed sequentially, passing from one
+to another their results.</p>
+<h3 id="build-operators">Build Operators</h3>
+<p>Operators are promise that operates on a file buffer. A file buffer
+is a simple object where keys contains the file&#39;s path and values are
+the content of these files. Such as</p>
+<pre><code>buffer = {
+  &#39;/path/to/file_1&#39;: &#39;Content file 1&#39;
+  &#39;/path/to/file_2&#39;: &#39;Content file 2&#39;
+}
+</code></pre><p>The following operators are currently available:</p>
+<p><strong>Note:</strong> Some processors requires a configuration, they&#39;ll be listed with
+their arguments in the list below such as <code>compile(options)</code>. Processors
+that don&#39;t needs arguments must be passed direcly without calling them.</p>
+<h4 id="common">Common</h4>
+<ul>
+<li><p><code>fileFooter(footer)</code>: Appends the given <code>footer</code> to each files in the
+buffer.</p>
+</li>
+<li><p><code>fileHeader(header)</code>: Prepends the given <code>header</code> to each files in the
+buffer.</p>
+<p>Given a file <code>templates/LICENSE</code> containing:</p>
+<pre><code class="lang-javascript">/*
+ * This is the license file.
+ */
+</code></pre>
+<p>You can prepend it to all files in the build with:</p>
+<pre><code>build.do(fileHeader load &#39;templates/LICENSE&#39;)
+</code></pre></li>
+<li><code>join(filename)</code>: Joins all the files in the buffer into a single file
+whose path is <code>filename</code>.</li>
+<li><p><code>processExtension(ext, process)</code>: Performs operations on files that matches
+the passed-in extension. The <code>process</code> argument is a promise returning
+function that takes a promise whose value is a filtered buffer.
+The function must return a promise whose value is a buffer as well.</p>
+<pre><code>build &#39;documentation&#39;, (build) -&gt;
+  build.source &#39;src/**/*.coffee&#39;
+  build.source &#39;src/**/*.js&#39;
+  build.source &#39;templates/**/*.html&#39;
+
+  build
+  .do(remove &#39;docs&#39;)
+  .then(processExtension &#39;coffee&#39;, (unit) -&gt;
+    unit.then(compile bare: true)
+
+  ).then(processExtension &#39;js&#39;, (unit) -&gt;
+    unit
+    .then(uglify)
+    .then(fileHeader load &#39;templates/LICENSE&#39;)
+    .then(relocate &#39;src&#39;, &#39;docs/js&#39;)
+
+  ).then(processExtension &#39;html&#39;, (unit) -&gt;
+    unit.then(relocate &#39;templates&#39;, &#39;docs&#39;)
+
+  ).then(writeFiles)
+</code></pre></li>
+<li><code>readFiles(paths)</code>: Loads the specified files and return a files buffer.
+This processor is automatically added at the build start provides the
+buffer containing all the files matching the patterns defined with the
+<code>build.source</code> method.</li>
+<li><code>relocate(from, to)</code>: Replace the <code>from</code> pattern with the <code>to</code> pattern
+in the files paths.</li>
+<li><code>remove(path)</code>: Removes the given path.</li>
+<li><p><code>writeFiles</code>: Writes all the files in the buffer at their respective
+path. Missing directories are created.</p>
+<p>The processor can be placed severla time in the processing stack.
+For instance you can write the files berfore and minification it will
+give you files with <code>min.js</code> extension for the minified versions.</p>
+</li>
+</ul>
+<h4 id="coffeescript">CoffeeSCript</h4>
+<ul>
+<li><code>annotate</code>: Add JavaScript annotation comments in the coffee script files.
+The results looks as:<pre><code>`/* foo.coffee */`
+Generator = -&gt;
+  `/* foo.coffee&lt;Foo&gt; line:2 */`
+  class Foo
+    `/* foo.coffee&lt;Foo.static&gt; line:3 */`
+    @static: -&gt;
+    `/* foo.coffee&lt;Foo::constructor&gt; line:4 */`
+    constructor: -&gt;
+    `/* foo.coffee&lt;Foo::method&gt; line:5 */`
+    method: -&gt;
+</code></pre></li>
+<li><code>compile(options)</code>: Compiles the files in the buffer through the
+the CoffeeScript compiler and change the path extension from <code>coffee</code>
+to <code>js</code>.</li>
+<li><p><code>exportsToPackage(package)</code>: Replace the module exports of nodejs code
+with a packaged version.</p>
+<p>For instance:</p>
+<pre><code>build.do(exportsToPackage &#39;path.to.package&#39;)
+</code></pre><p>Will prepend the following snippet in all files:</p>
+<pre><code>@path ||= {}
+@path.to ||= {}
+@path.to.package ||= {}
+</code></pre><p>Below is various use cases and their results:</p>
+<pre><code># before
+exports.a = -&gt; #...
+# after
+@path.to.package.a = -&gt; #...
+</code></pre><pre><code># before
+exports[&#39;a&#39;] = -&gt; #...
+# after
+@path.to.package[&#39;a&#39;] = -&gt; #...
+</code></pre><pre><code># before
+module.exports = {a,b,c: 10}
+# after
+@path.to.package.a = a
+@path.to.package.b = b
+@path.to.package.c = 10
+</code></pre><pre><code># before
+module.exports = MyClass
+# after
+@path.to.package.MyClass = MyClass
+# When a variable name is affected as exports, the variable
+# name is used as property name on the package. It&#39;s useful
+# to have a class available as module in node and accessible
+# through its name when stored in a package.
+</code></pre></li>
+<li><p><code>stripRequires</code>: Removes all lines that contains a call to <code>require</code>.</p>
+</li>
+</ul>
+<h4 id="javascript">JavaScript</h4>
+<ul>
+<li><code>uglify</code>: Minify the javascripts file through <code>uglify-js</code> and changes
+the file extension from <code>js</code> to <code>min.js</code>.</li>
+</ul>
+<h3 id="build-utilities">Build Utilities</h3>
+<ul>
+<li><code>load</code>: Loads the given file from the project root and returns its
+content as a string.</li>
+</ul>
+<h3 id="custom-build-operators">Custom Build Operators</h3>
+<p>Custom build operators should be placed in the <code>lib/processing</code> directory.</p>
+<h4 id="without-configuration">Without Configuration</h4>
+<pre><code>myCustomOperator = (buffer) -&gt;
+  # Either return a new buffer synchronously
+  # or a promise whose value is a buffer
+</code></pre><h4 id="with-configuration">With Configuration</h4>
+<pre><code>myCustomOperator = (args...) -&gt;
+  # The operator function returns a promise returning function
+  # taking the buffer as argument.
+
+  return (buffer) -&gt;
+    # Either return a new buffer synchronously
+    # or a promise whose value is a buffer
+</code></pre>

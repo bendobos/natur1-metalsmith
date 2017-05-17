@@ -1,0 +1,214 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+  @include grid-container;
+  overflow: hidden;
+}
+
+#top-bar {
+  @include grid-column(12);
+  width: calc(100% - 20px);
+  margin-left: 0;
+  height: 40px;
+  font-size: 13px;
+  line-height: 18px;
+  padding-left: 20px;
+  background: $light-grey;
+  border-bottom: 2px solid $ci-green;
+
+  ul {
+    li {
+      list-style: none;
+      float: left;
+      margin-right: 20px;
+
+      .icon {
+        color: $ci-green;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+header {
+  @include grid-column(12);
+  width: calc(100% - 60px);
+  margin-left: 0;
+  height: 60px;
+  padding: 55px 0 0 60px;
+
+  #logo {
+    display: block;
+    float: left;
+  }
+
+  nav {
+    float: left;
+    margin-left: 40px;
+
+    ul {
+      list-style-type: none;
+      position: relative;
+
+      li {
+        float: left;
+        padding: 10px 15px 10px 15px;
+        margin-right: 20px;
+        font-size: 18px;
+        top: 25%;
+        transform: translateY(-25%);
+
+        &.uk-active {
+          border: 1px solid $ci-green;
+          border-radius: 100px;
+
+          a {
+            color: black;
+          }
+        }
+
+        a {
+          text-decoration: none;
+          color: $nav-grey;
+        }
+      }
+    }
+  }
+}
+
+#hero {
+  @include grid-column(12);
+  width: calc(100% - 60px);
+  padding: 40px 0px 0 60px;
+  margin-left: 0;
+}
+.curved-lines {
+  margin-top: -50px;
+  width: 100%;
+
+  &.footer {
+    transform: scaleX(-1.1);
+    filter: FlipH;
+    margin-top: 50px;
+  }
+}
+
+main {
+  @include grid-column(12);
+  @include grid-collapse;
+  width: 100%;
+
+  #content {
+    @include grid-column(12);
+    @include grid-collapse;
+
+    .home-section {
+      padding: 20px 100px 0 100px;
+      clear: both;
+
+      &.first {
+        margin-top: -4px;
+      }
+
+      &.grey {
+        background-color: $light-grey;
+      }
+      &.white {
+        background-color: white;
+      }
+
+      #map {
+        @include grid-column(12);
+        @include grid-collapse;
+        width: calc(100% + 160px);
+        height: 400px;
+        margin-left: -60px;
+        padding-top: 50px;
+        background: $light-grey;
+      }
+
+      .full-width-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 300px;
+        margin: 50px 0 0 -60px;
+        padding: 0 80px 0 80px;
+
+        &.green {
+          background-color: $ci-green;
+        }
+
+        .circles {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+
+          .circle-wrapper {
+            margin-right: 50px;
+            width: 150px;
+
+            .circle-image {
+              height: 140px;
+              width: 140px;
+              border-radius: 50%;
+              border: 9px solid white;
+              box-shadow: $shadow-normal;
+              transition: all 0.5s;
+
+              &:hover {
+                height: 150px;
+                width: 150px;
+                box-shadow: $shadow-hover;
+              }
+            }
+          }
+        }
+      }
+
+      #profile-card {
+        @include grid-column(6);
+        @include grid-shift(3);
+        clear: both;
+        margin: 0 auto;
+        background: $super-light-grey;
+        margin-top: 80px;
+        margin-bottom: 60px;
+        border-radius: 5px;
+        box-shadow: $shadow-light;
+        transition: all 0.5s;
+
+        &:hover {
+          box-shadow: $shadow-light-hover;
+        }
+
+        ul {
+            padding: 0 60px 0 60px;
+        }
+
+        #circle-avatar {
+          display: block;
+          height: 120px;
+          width: 120px;
+          border-radius: 50%;
+          border: 4px solid white;
+          box-shadow: $shadow-normal;
+          margin: 0 auto;
+          margin-top: -35px;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  @include grid-column(12);
+  @include grid-collapse;
+  background: $light-grey;
+  margin-top: -5px;
+  height: 100px;
+}

@@ -1,0 +1,76 @@
+.uk-article-title {
+  display: none;
+}
+
+#hero {
+  h1 {
+    font-size: 1.6em;
+  }
+
+  p {
+    color: $hero-text;
+    max-width: 800px;
+    font-size: 1.1em;
+    line-height: 1.6em;
+    margin: 0;
+  }
+}
+
+#content {
+  .home-section {
+    h1 {
+      font-size: 1.6em;
+    }
+
+    p {
+      color: $hero-text;
+      max-width: 800px;
+      font-size: 1.1em;
+      line-height: 1.6em;
+      margin: 0;
+    }
+  }
+}
+
+.circle-wrapper {
+  text-align: center;
+
+  h2 {
+    font-size: 1em;
+  }
+}
+
+#profile-card {
+  h1 {
+    text-align: center;
+  }
+
+  ul {
+    list-style-type: none;
+
+    li {
+      position: relative;
+      line-height: 1.5em;
+      margin: 0 0 20px 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:before {
+        content: '\25CE';
+        color: $ci-green;
+        font-size: 0.8em;
+        position: absolute;
+        left: -25px;
+        top: 25%;
+      }
+    }
+  }
+}
+
+.button {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
