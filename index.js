@@ -2,8 +2,18 @@ var Metalsmith  = require('metalsmith');
 var markdown    = require('metalsmith-markdown');
 var layouts     = require('metalsmith-layouts');
 var permalinks  = require('metalsmith-permalinks');
+var watch       = require('metalsmith-watch');
 
 Metalsmith(__dirname)
+  .use(watch(
+    watch({
+      paths: {
+        "${source}/**/*": true,
+        "layouts/**/*": "**/*"
+      },
+      livereload: true
+    })
+  ))
   .metadata({
     title: "Natur1 Naturheilzentrum",
     description: "Das Naturheilzentrum im Herzen Düsseldorfs",
