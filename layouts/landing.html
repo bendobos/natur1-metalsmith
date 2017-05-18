@@ -1,12 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>{{ title }}</title>
-  <meta name="description" content="{{ description }}">
-
-  <link rel="stylesheet" type="text/css" href="css/theme.css">
+  {{> head}}
 </head>
+
 <body>
   <div id="wrapper">
     <section id="top-bar">
@@ -18,11 +15,9 @@
     </header>
 
     <section id="hero">
-      <h1>Die modernsten Lösungen und Möglichkeiten &ndash;<br />
-          für Ihre Beschwerden.</h1>
-      <p>
-        Auch und gerade für komplexe, schwierige und außergewöhnliche Krankheitsgeschehen.
-        Unser besonderes therapeutisches Augenmerk gelten der <strong>Osteopathie</strong>, der <strong>Schmerztherapie</strong>, der traditionellen <strong>chinesischen Medizin</strong> und der klassichen <strong>Homöopathie</strong>.
+      <h1>{{ data.entries.0.fields.heroHeadline }}</h1>
+      <p data-markdown>
+        {{ data.entries.0.fields.heroText }}
       </p>
     </section>
 
@@ -30,6 +25,12 @@
 
     <main>
       <section id="content">
+        {{#each data.entries.0.fields.contentBlocks }}
+          <section class="home-section">
+            <h1>{{ fields.title }}</h1>
+            <p>{{ fields.content }}</p>
+          </section>
+        {{/each}}
         <section class="home-section grey first">
           <h1>Unsere Spezialisierungen</h1>
             <p>
@@ -38,23 +39,23 @@
             <div class="full-width-container green">
                 <div class="circles">
                     <div class="circle-wrapper">
-                        <img src="storage/osteopathie.png" alt="Osteopathie" class="circle-image">
+                        <img src="assets/osteopathie.png" alt="Osteopathie" class="circle-image">
                         <h2>Osteopathie</h2>
                     </div>
                     <div class="circle-wrapper">
-                        <img src="storage/akupunktur.png" alt="Akupunktur" class="circle-image">
+                        <img src="assets/akupunktur.png" alt="Akupunktur" class="circle-image">
                         <h2>Akupunktur / TCM</h2>
                     </div>
                     <div class="circle-wrapper">
-                        <img src="storage/homoeopathie.png" alt="Homoeopathie" class="circle-image">
+                        <img src="assets/homoeopathie.png" alt="Homoeopathie" class="circle-image">
                         <h2>Homöopathie</h2>
                     </div>
                     <div class="circle-wrapper">
-                        <img src="storage/bioresonanz.png" alt="Bioresonanz" class="circle-image">
+                        <img src="assets/bioresonanz.png" alt="Bioresonanz" class="circle-image">
                         <h2>Bioresonanz</h2>
                     </div>
                     <div class="circle-wrapper">
-                        <img src="storage/schmerztherapien.png" alt="Schmerztherapie" class="circle-image">
+                        <img src="assets/schmerztherapien.png" alt="Schmerztherapie" class="circle-image">
                         <h2>Schmerztherapie</h2>
                     </div>
                 </div>
@@ -71,7 +72,7 @@
         Im Zentrum unserer Tätigkeiten steht immer ein tiefes Verständnis des Patienten und seiner lebendingen Pathologie.
             </p>
             <div id="profile-card">
-                <img src="storage/michaelclauss.png" alt="Therapeut Michael Clauss" id="circle-avatar">
+                <img src="assets/michaelclauss.png" alt="Therapeut Michael Clauss" id="circle-avatar">
                 <h1>Michael D. Clauss</h1>
                 <ul>
                     <li>Praktiziert seit 1987 als Heilpraktiker, klassischer Homöopath und Osteopath ganzheitliche, naturheilkundliche Verfahren.</li>

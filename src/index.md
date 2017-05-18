@@ -1,6 +1,6 @@
 ---
 title: Natur1
 contentful:
-  content_type: landing
+  content_type: landingPage
 layout: landing.html
 ---
