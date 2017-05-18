@@ -1,17 +1,18 @@
-var Metalsmith   = require('metalsmith');
-var markdown     = require('metalsmith-markdown');
-var layouts      = require('metalsmith-layouts');
-var contentful   = require('contentful-metalsmith');
-var permalinks   = require('metalsmith-permalinks');
-var sass         = require('metalsmith-sass');
-var assets       = require('metalsmith-assets');
-var msIf         = require('metalsmith-if');
-var watch        = require('metalsmith-watch');
-var watcher      = false;
-var datamarkdown = require('metalsmith-data-markdown');
+const Metalsmith   = require('metalsmith');
+const markdown     = require('metalsmith-markdown');
+const layouts      = require('metalsmith-layouts');
+const contentful   = require('contentful-metalsmith');
+const permalinks   = require('metalsmith-permalinks');
+const sass         = require('metalsmith-sass');
+const assets       = require('metalsmith-assets');
+const msIf         = require('metalsmith-if');
+const watch        = require('metalsmith-watch');
+const icons        = require('metalsmith-icons');
+const subsetfonts  = require('metalsmith-subsetfonts');
+let watcher        = false;
 
 if (process.env.NODE_ENV !== 'production') {
-  var watcher = true
+  watcher = true
 }
 
 Metalsmith(__dirname)
@@ -52,6 +53,7 @@ Metalsmith(__dirname)
     sourceMapContents: true,
     outputStyle: 'compressed'
   }))
+  .use(subsetfonts())
   .use(markdown())
   .use(permalinks())
   .build(function(err, files) {
