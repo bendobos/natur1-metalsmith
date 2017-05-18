@@ -106,19 +106,17 @@ main {
     @include grid-column(12);
     @include grid-collapse;
 
+
     .home-section {
       padding: 20px 100px 0 100px;
       clear: both;
 
-      &.first {
+      &:first-child {
         margin-top: -5px;
       }
 
-      &.grey {
+      &:nth-child(odd) {
         background-color: $light-grey;
-      }
-      &.white {
-        background-color: white;
       }
 
       #map {

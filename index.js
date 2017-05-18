@@ -1,3 +1,5 @@
+const Handlebars   = require('handlebars');
+const Swag         = require('swag');
 const Metalsmith   = require('metalsmith');
 const markdown     = require('metalsmith-markdown');
 const layouts      = require('metalsmith-layouts');
@@ -14,6 +16,8 @@ let watcher        = false;
 if (process.env.NODE_ENV !== 'production') {
   watcher = true
 }
+
+Swag.registerHelpers(Handlebars);
 
 Metalsmith(__dirname)
   .metadata({
