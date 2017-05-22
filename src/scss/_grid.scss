@@ -43,6 +43,8 @@ header {
   #logo {
     display: block;
     float: left;
+    width: 185px;
+    height: 62px;
   }
 
   nav {
@@ -61,7 +63,7 @@ header {
         top: 25%;
         transform: translateY(-25%);
 
-        &.uk-active {
+        &.active {
           border: 1px solid $ci-green;
           border-radius: 100px;
 

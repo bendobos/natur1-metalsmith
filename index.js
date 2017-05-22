@@ -2,6 +2,7 @@ const Handlebars   = require('handlebars');
 const Swag         = require('swag');
 const Metalsmith   = require('metalsmith');
 const markdown     = require('metalsmith-markdown');
+const datamarkdown = require('metalsmith-data-markdown');
 const layouts      = require('metalsmith-layouts');
 const contentful   = require('contentful-metalsmith');
 const permalinks   = require('metalsmith-permalinks');
@@ -11,6 +12,7 @@ const msIf         = require('metalsmith-if');
 const watch        = require('metalsmith-watch');
 const icons        = require('metalsmith-icons');
 const subsetfonts  = require('metalsmith-subsetfonts');
+const inlineSVG    = require('metalsmith-inline-svg');
 let watcher        = false;
 
 if (process.env.NODE_ENV !== 'production') {
@@ -57,8 +59,16 @@ Metalsmith(__dirname)
     sourceMapContents: true,
     outputStyle: 'compressed'
   }))
+  .use(datamarkdown({
+    removeAttributeAfterwards: true,
+    marked: {
+      gfm: false
+    }
+  }))
+  .use(inlineSVG({
+    selector: 'img.inline-svg'
+  }))
   .use(subsetfonts())
-  .use(markdown())
   .use(permalinks())
   .build(function(err, files) {
     if (err) { throw err; } else { console.log("Build successful") }
