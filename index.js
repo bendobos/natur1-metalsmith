@@ -1,7 +1,6 @@
 const Handlebars   = require('handlebars');
 const Swag         = require('swag');
 const Metalsmith   = require('metalsmith');
-const markdown     = require('metalsmith-markdown');
 const datamarkdown = require('metalsmith-data-markdown');
 const layouts      = require('metalsmith-layouts');
 const contentful   = require('contentful-metalsmith');
@@ -10,7 +9,6 @@ const sass         = require('metalsmith-sass');
 const assets       = require('metalsmith-assets');
 const msIf         = require('metalsmith-if');
 const watch        = require('metalsmith-watch');
-const icons        = require('metalsmith-icons');
 const subsetfonts  = require('metalsmith-subsetfonts');
 const inlineSVG    = require('metalsmith-inline-svg');
 let watcher        = false;
