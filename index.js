@@ -11,6 +11,7 @@ const msIf         = require('metalsmith-if');
 const watch        = require('metalsmith-watch');
 const subsetfonts  = require('metalsmith-subsetfonts');
 const inlineSVG    = require('metalsmith-inline-svg');
+const imagemin     = require('metalsmith-imagemin');
 let watcher        = false;
 
 if (process.env.NODE_ENV !== 'production') {
@@ -65,6 +66,10 @@ Metalsmith(__dirname)
   }))
   .use(inlineSVG({
     selector: 'img.inline-svg'
+  }))
+  .use(imagemin({
+    optimizationLevel: 3,
+    svgoPlugins: [{ removeViewBox: false }]
   }))
   .use(subsetfonts())
   .use(permalinks())
