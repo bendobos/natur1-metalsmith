@@ -8,6 +8,13 @@ html, body {
   overflow: hidden;
 }
 
+#content {
+  section {
+    padding: 20px 100px 40px 100px;
+    clear: both;
+  }
+}
+
 #top-bar {
   @include grid-column(12);
   width: calc(100% - 20px);

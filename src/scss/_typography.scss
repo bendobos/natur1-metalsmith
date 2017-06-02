@@ -1,7 +1,3 @@
-.uk-article-title {
-  display: none;
-}
-
 #hero {
   h1 {
     font-size: 1.6em;
@@ -19,6 +15,24 @@
 
 #content {
   section {
+    &.about {
+      ul {
+        position: relative;
+        padding-top: 0.8em;
+        padding-bottom: 0.8em;
+
+        &:before {
+          content: '';
+          width: 4px;
+          background: $medium-grey;
+          height: 100%;
+          position: absolute;
+          left: 41px;
+          top: 0;
+        }
+      }
+    }
+
     h1 {
       font-size: 1.6em;
     }
@@ -29,6 +43,28 @@
       font-size: 1.1em;
       line-height: 1.6em;
       margin: 0;
+    }
+
+    ul {
+      list-style-type: none;
+
+      li {
+        position: relative;
+        line-height: 1.5em;
+        margin: 0 0 25px 40px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        &:before {
+          content: '\25CF';
+          color: $ci-green;
+          font-size: 1.7em;
+          position: absolute;
+          left: -45px;
+        }
+      }
     }
   }
 }
@@ -44,29 +80,6 @@
 #profile-card {
   h1 {
     text-align: center;
-  }
-
-  ul {
-    list-style-type: none;
-
-    li {
-      position: relative;
-      line-height: 1.5em;
-      margin: 0 0 20px 20px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      &:before {
-        content: '\25CE';
-        color: $ci-green;
-        font-size: 0.8em;
-        position: absolute;
-        left: -25px;
-        top: 25%;
-      }
-    }
   }
 }
 
