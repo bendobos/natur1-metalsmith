@@ -1,8 +1,13 @@
 <ul>
   {{#is pageTitle 'index'}}
-    <li class="active"><a href="/">Home</a></li>
+    <li class="active"><a href="index.html">Home</a></li>
   {{else}}
-    <li><a href="/">Home</a></li>
+    <li><a href="index.html">Home</a></li>
   {{/is}}
-  <li>Über uns</li>
+
+  {{#is pageTitle 'about'}}
+    <li class="active"><a href="about/index.html">Über uns</a></li>
+  {{else}}
+    <li><a href="about/index.html">Über uns</a></li>
+  {{/is}}
 </ul>

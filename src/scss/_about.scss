@@ -1,0 +1,29 @@
+#content {
+  #profile {
+    display: table;
+    width: 100%;
+    padding: 60px 100px 30px 100px;
+    box-sizing: border-box;
+
+    #profile-photo,
+    #profile-text {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    #profile-photo {
+      padding-right: 2em;
+
+      img {
+        @include circle-image;
+      }
+    }
+
+    #profile-text {
+      p {
+        color: $nav-grey;
+        line-height: 1.8em;
+      }
+    }
+  }
+}

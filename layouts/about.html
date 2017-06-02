@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  {{> head}}
+</head>
+<body>
+  <div id="wrapper">
+    <section id="top-bar">
+      {{> top_bar }}
+    </section>
+
+    <header>
+      <img src="assets/logo.svg" id="logo" alt="Natur1 Naturheilzentrum" />
+      <nav>
+        {{> navigation}}
+      </nav>
+    </header>
+
+    <main>
+      <section id="content">
+        <div id="profile">
+          <div id="profile-photo">
+            <img src="assets/michaelclauss.png" />
+          </div>
+          <div id="profile-text">
+            <h1>{{ data.entries.0.fields.profileHeadline }}</h1>
+            <p data-markdown>{{ data.entries.0.fields.profileText }}</p>
+          </div>
+        </div>
+
+        {{#each data.entries.0.fields.contentBlocks }}
+          <section>
+            <h1>{{ fields.title }}</h1>
+            <p data-markdown>{{ fields.content }}</p>
+          </section>
+        {{/each }}
+      </section>
+    </main>
+
+    <img src="assets/curved-lines.svg" class="curved-lines footer inline-svg" />
+
+    <footer>
+      <p>Generated with {{ generator }} &mdash; <a href="{{ url }}">{{ url }}</a></p>
+    </footer>
+  </div>
+
+</body>
+</html>
