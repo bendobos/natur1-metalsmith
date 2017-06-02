@@ -23,7 +23,6 @@
     "metalsmith": "^2.3.0",
     "metalsmith-assets": "^0.1.0",
     "metalsmith-data-markdown": "0.0.3",
-    "metalsmith-if": "^0.1.1",
     "metalsmith-imagemin": "^4.0.0",
     "metalsmith-inline-svg": "^0.1.4",
     "metalsmith-layouts": "^1.8.1",
@@ -32,8 +31,5 @@
     "metalsmith-subsetfonts": "^0.1.4",
     "metalsmith-watch": "^1.0.3",
     "swag": "^0.7.0"
-  },
-  "devDependencies": {
-    "metalsmith-watch": "^1.0.3"
   }
 }

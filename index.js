@@ -7,16 +7,9 @@ const contentful   = require('contentful-metalsmith');
 const permalinks   = require('metalsmith-permalinks');
 const sass         = require('metalsmith-sass');
 const assets       = require('metalsmith-assets');
-const msIf         = require('metalsmith-if');
-const watch        = require('metalsmith-watch');
 const subsetfonts  = require('metalsmith-subsetfonts');
 const inlineSVG    = require('metalsmith-inline-svg');
 const imagemin     = require('metalsmith-imagemin');
-let watcher        = false;
-
-if (process.env.NODE_ENV !== 'production') {
-  watcher = true
-}
 
 Swag.registerHelpers(Handlebars);
 
@@ -30,16 +23,6 @@ Metalsmith(__dirname)
   .source('./src')
   .destination('./build')
   .clean(true)
-  .use(msIf(
-    watcher,
-    watch({
-      paths: {
-        "${source}/**/*": true,
-        "layouts/**/*": "**/*.md",
-        "partials/**/*": "**/*.md"
-      }
-    })
-  ))
   .use(contentful({
     'access_token': '48f2dd2572a725053eaa6e8455a6be9fa0c49b3fdb54beabbb515dfafe70a764',
     'space_id': 'uyzbu4k0mvui'
