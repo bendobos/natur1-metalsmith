@@ -1,0 +1,18 @@
+<div id="footer-content-wrapper">
+  <img src="assets/logo-icon.svg" alt="Natur1 Heilzentrum" id="footer-logo" />
+
+  <ul>
+    {{#is pageTitle 'index'}}
+      <li><a href="/" class="active">Home</a></li>
+    {{else}}
+      <li><a href="/">Home</a></li>
+    {{/is}}
+
+    {{#is pageTitle 'about'}}
+      <li><a href="/about" class="active">Über uns</a></li>
+    {{else}}
+      <li><a href="/about">Über uns</a></li>
+    {{/is}}
+    <li><a href="#">Therapien</a></li>
+  </ul>
+</div>

@@ -69,6 +69,22 @@
   }
 }
 
+footer {
+  a {
+    color: $nav-grey;
+    text-decoration: none;
+
+    &:hover {
+      color: black;
+    }
+
+    &.active {
+      color: black;
+      border-bottom: 1px solid $ci-green;
+    }
+  }
+}
+
 .circle-wrapper {
   text-align: center;
 
