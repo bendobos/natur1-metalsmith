@@ -1,0 +1,26 @@
+#content {
+  #contact-card {
+    @include grid-column(10);
+    @include card;
+    float: none;
+  }
+
+  #card-content {
+    @include grid-container;
+    padding: 2em;
+
+    #left {
+      @include grid-column(8);
+
+      form {
+        .button-row {
+          width: 100%;
+        }
+      }
+    }
+
+    #right {
+      @include grid-column(4);
+    }
+  }
+}

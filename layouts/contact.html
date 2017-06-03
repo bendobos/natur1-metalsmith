@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  {{> head}}
+</head>
+<body>
+  <div id="wrapper">
+    <section id="top-bar">
+      {{> top_bar }}
+    </section>
+
+    <header>
+      {{> header}}
+    </header>
+
+    <main>
+      <section id="content">
+        <div id="contact-card">
+          <div id="card-content">
+            <div id="left">
+              <h1>Schreiben Sie uns!</h1>
+              <form name="kontakt" action="success" netlify>
+                <p class="button-row">
+                 <input type="text" name="name" placeholder="Ihr Name">
+                 <input type="email" name="email" placeholder="E-Mail Adresse">
+                 <input type="phone" name="phone" placeholder="Telefonnummer">
+               </p>
+               <p>
+                 <textarea name="message" class="textarea"></textarea>
+               </p>
+               <p>
+                 <button>Send</button>
+               </p>
+              </form>
+            </div>
+            <div id="right">
+              test2
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <img src="assets/curved-lines.svg" class="curved-lines footer inline-svg" />
+
+    <footer>
+      {{> footer }}
+    </footer>
+  </div>
+
+</body>
+</html>

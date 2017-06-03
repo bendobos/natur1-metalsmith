@@ -73,20 +73,9 @@
     }
 
     #profile-card {
+      @include card;
       @include grid-column(6);
       @include grid-shift(3);
-      clear: both;
-      margin: 0 auto;
-      background: $super-light-grey;
-      margin-top: 80px;
-      margin-bottom: 60px;
-      border-radius: 5px;
-      box-shadow: $shadow-light;
-      transition: all 0.5s;
-
-      &:hover {
-        box-shadow: $shadow-light-hover;
-      }
 
       ul {
           padding: 0 60px 0 60px;

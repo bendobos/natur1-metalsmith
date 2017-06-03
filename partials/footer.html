@@ -13,6 +13,11 @@
     {{else}}
       <li><a href="/ueber-uns">Über uns</a></li>
     {{/is}}
-    <li><a href="#">Therapien</a></li>
+
+    {{#is pageTitle 'kontakt'}}
+      <li><a href="/kontakt" class="active">Kontakt</a></li>
+    {{else}}
+      <li><a href="/kontakt">Kontakt</a></li>
+    {{/is}}
   </ul>
 </div>

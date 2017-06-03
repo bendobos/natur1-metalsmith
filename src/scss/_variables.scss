@@ -28,3 +28,18 @@ $shadow-light-hover: 0 7px 25px 0 rgba(0,0,0,0.35);
   box-shadow: $shadow-normal;
   transition: all 0.5s;
 }
+
+@mixin card {
+  clear: both;
+  margin: 0 auto;
+  background: $super-light-grey;
+  margin-top: 80px;
+  margin-bottom: 60px;
+  border-radius: 5px;
+  box-shadow: $shadow-light;
+  transition: all 0.5s;
+
+  &:hover {
+    box-shadow: $shadow-light-hover;
+  }
+}

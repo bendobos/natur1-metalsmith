@@ -3,8 +3,16 @@ html, body {
   padding: 0;
 }
 
-#wrapper {
+main {
   @include grid-container;
+
+  #content {
+    @include grid-column(12);
+    @include grid-collapse;
+  }
+}
+
+#wrapper {
   overflow: hidden;
 }
 
@@ -103,17 +111,6 @@ header {
     transform: scaleX(-1.1);
     filter: FlipH;
     margin-top: 50px;
-  }
-}
-
-main {
-  @include grid-column(12);
-  @include grid-collapse;
-  width: 100%;
-
-  #content {
-    @include grid-column(12);
-    @include grid-collapse;
   }
 }
 
