@@ -20,6 +20,11 @@
         .loading {
           height: 48px;
         }
+
+        &#button-area {
+          height: 48px;
+          line-height: 48px;
+        }
       }
       .success {
         color: $ci-green;
