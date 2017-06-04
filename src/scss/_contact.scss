@@ -16,6 +16,19 @@
       p {
         color: $nav-grey;
         line-height: 1.8em;
+
+        .loading {
+          height: 48px;
+        }
+      }
+      .success {
+        color: $ci-green;
+        font-weight: bold;
+        font-size: 1.2em;
+      }
+
+      .hidden {
+        display: none;
       }
 
       form {

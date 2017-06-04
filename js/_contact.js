@@ -1,9 +1,12 @@
 $("#contact-form").submit(function(e) {
   e.preventDefault();
 
+  $(".send").toggleClass("hidden");
+  $(".loading").toggleClass("hidden");
+
   var $form = $(this);
-  console.log($form.serialize())
   $.post($form.attr("action"), $form.serialize()).then(function() {
-    alert("Thank you!");
+    $(".loading").toggleClass("hidden");
+    $(".success").toggleClass("hidden");
   });
 });
