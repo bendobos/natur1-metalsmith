@@ -21,6 +21,19 @@ Used to only use the watcher when `NODE_ENV` is other than `production`
 ## Icons
 A special set of [Fontawesome](http://fontawesome.io/) is used. It was generated using [Fontello](http://fontello.com/) and needs to be updated every time a new icon is needed.
 
+Icons currently available:
+- `icon-phone` / `\e800`
+- `icon-mail` / `\e801`
+- `icon-clock` / `\e802`
+- `icon-ok-circled` / `\e803`
+- `icon-paper-plane-empty` / `\f1d9`
+- `icon-map-pin` / `f276`
+
+To use an icon:
+```
+<i class="icon icon-phone"></i>
+```
+
 ## Building
 A build can be triggered by running `NODE_ENV=production node index.js`. The `NODE_ENV` flag can be omitted if it is set as an environment variable.
 
