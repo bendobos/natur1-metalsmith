@@ -1,79 +1,90 @@
 #content {
-  #contact-card {
+  .contact-card {
     @include grid-column(10);
     @include card;
     float: none;
-  }
 
-  #card-content {
-    @include grid-container;
-    display: flex;
+    .card-content {
+      @include grid-container;
+      display: flex;
 
-    #left {
-      @include grid-column(8);
-      padding: 2em;
+      #left {
+        @include grid-column(8);
+        padding: 2em;
 
-      p {
-        color: $nav-grey;
-        line-height: 1.8em;
+        p {
+          color: $nav-grey;
+          line-height: 1.8em;
 
-        .loading {
-          height: 48px;
+          .loading {
+            height: 48px;
+          }
+
+          &#button-area {
+            height: 48px;
+            line-height: 48px;
+          }
+        }
+        .success {
+          color: $ci-green;
+          font-weight: bold;
+          font-size: 1.2em;
         }
 
-        &#button-area {
-          height: 48px;
-          line-height: 48px;
+        .hidden {
+          display: none;
+        }
+
+        form {
+          .button-row {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+          }
         }
       }
-      .success {
-        color: $ci-green;
-        font-weight: bold;
-        font-size: 1.2em;
-      }
 
-      .hidden {
-        display: none;
-      }
+      #right {
+        @include grid-column(4);
+        margin-left: 40px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 4.5em 0 4.5em 0;
+        background: $ci-green;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
 
-      form {
-        .button-row {
-          display: flex;
-          justify-content: space-between;
-          width: 100%;
+        div {
+          i {
+            color: $ci-green-dark;
+            font-size: 2em;
+            text-shadow: 0px 1px 0px rgba(255,255,255,.5);
+            transition: all 0.5s;
+          }
+
+          p {
+            color: #34383A;
+          }
+
+          &:hover {
+            i {
+              color: #34383A;
+            }
+          }
         }
       }
     }
 
-    #right {
-      @include grid-column(4);
-      margin-left: 40px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 4.5em 0 4.5em 0;
-      background: $ci-green;
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
+    #map {
+      width: 100%;
+      height: 500px;
 
-      div {
-        i {
-          color: $ci-green-dark;
-          font-size: 2em;
-          text-shadow: 0px 1px 0px rgba(255,255,255,.5);
-          transition: all 0.5s;
-        }
-
-        p {
-          color: #34383A;
-        }
-
-        &:hover {
-          i {
-            color: #34383A;
-          }
-        }
+      iframe {
+        width: 100%;
+        height: 500px;
+        border-radius: 5px;
       }
     }
   }
