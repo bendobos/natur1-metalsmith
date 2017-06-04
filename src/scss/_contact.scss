@@ -7,10 +7,16 @@
 
   #card-content {
     @include grid-container;
-    padding: 2em;
+    display: flex;
 
     #left {
       @include grid-column(8);
+      padding: 2em;
+
+      p {
+        color: $nav-grey;
+        line-height: 1.8em;
+      }
 
       form {
         .button-row {
@@ -23,6 +29,32 @@
 
     #right {
       @include grid-column(4);
+      margin-left: 40px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 4.5em 0 4.5em 0;
+      background: $ci-green;
+
+      div {
+        i {
+          color: $ci-green-dark;
+          font-size: 2em;
+          text-shadow: 0px 1px 0px rgba(255,255,255,.5);
+          transition: all 0.5s;
+        }
+
+        p {
+          color: #34383A;
+        }
+
+        &:hover {
+          i {
+            color: #34383A;
+          }
+        }
+      }
     }
   }
 }

@@ -35,6 +35,10 @@ Metalsmith(__dirname)
     source: './assets',
     destination: './assets'
   }))
+  .use(assets({
+    source: './js',
+    destination: './js'
+  }))
   .use(sass({
     outputDir: 'css/',
     sourceMap: true,

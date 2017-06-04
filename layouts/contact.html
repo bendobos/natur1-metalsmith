@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   {{> head}}
+  <script type="text/javascript" src="js/jquery.js"></script>
 </head>
 <body>
   <div id="wrapper">
@@ -19,7 +20,11 @@
           <div id="card-content">
             <div id="left">
               <h1>Schreiben Sie uns!</h1>
-              <form name="kontakt" action="success" netlify>
+              <p>Haben Sie weitere Fragen? Wir freuen uns darauf, von Ihnen zu hören.
+                Füllen Sie das untenstehende Formular aus und wir bearbeiten Ihr Anliegen schnellstmöglich.<br />
+                <strong>Bitte nutzen Sie dieses Formular nicht zur Terminabsprache &mdash; rufen Sie uns dafür einfach an.</strong>
+              </p>
+              <form name="kontakt" action="" id="contact-form">
                 <p class="button-row">
                  <input type="text" name="name" placeholder="Ihr Name">
                  <input type="email" name="email" placeholder="E-Mail Adresse">
@@ -29,12 +34,35 @@
                  <textarea name="message" class="textarea"></textarea>
                </p>
                <p>
-                 <button>Send</button>
+                 <input type="hidden" name="form-name" value="kontakt">
+                 <button class="send">Mail absenden</button>
                </p>
               </form>
             </div>
             <div id="right">
-              test2
+              <div>
+                <i class="icon icon-phone"></i>
+                <p>0211 / 49 01 46</p>
+              </div>
+              <div>
+                <i class="icon icon-map-pin"></i><br />
+                <p>
+                  Carlsplatz 18<br />
+                  40213 Düsseldorf
+                </p>
+              </div>
+              <div>
+                <i class="icon icon-clock"></i><br />
+                <p>
+                  <strong>Mo.-Fr.</strong><br />
+                  8:00 - 13:00<br />
+                  15:00 - 19:30
+                </p>
+                <p>
+                  <strong>Di. - Do.</strong><br />
+                  15:00 - 19:30
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -47,6 +75,8 @@
       {{> footer }}
     </footer>
   </div>
+
+  <script type="text/javascript" src="js/_contact.js"></script>
 
 </body>
 </html>

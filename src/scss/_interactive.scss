@@ -1,4 +1,36 @@
+button {
+  font-family: "Varela Round", sans-serif;
+  font-weight: bold;
+  color: black;
+  appearance: none;
+  border: 2px solid $ci-green;
+  border-radius: 5px;
+  background-color: transparent;
+  height: 3em;
+  padding: 0 1em 0 1em;
+  font-size: 1em;
+  transition: all 0.5s;
+
+  &.send {
+    &:after {
+      font-family: "fontawesome";
+      content: '\f1d9';
+      color: $ci-green;
+      font-weight: lighter;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 0.5em;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    border: 2px solid $ci-green-dark;
+  }
+}
+
 .button {
+  -webkit-appearance: none;
   display: table;
   height: 30px;
   line-height: 40px;
