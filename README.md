@@ -22,12 +22,12 @@ Used to only use the watcher when `NODE_ENV` is other than `production`
 A special set of [Fontawesome](http://fontawesome.io/) is used. It was generated using [Fontello](http://fontello.com/) and needs to be updated every time a new icon is needed.
 
 Icons currently available:
-- `icon-phone` / `\e800`
-- `icon-mail` / `\e801`
-- `icon-clock` / `\e802`
-- `icon-ok-circled` / `\e803`
-- `icon-paper-plane-empty` / `\f1d9`
-- `icon-map-pin` / `f276`
+- `icon-phone` - `\e800`
+- `icon-mail` - `\e801`
+- `icon-clock` - `\e802`
+- `icon-ok-circled` - `\e803`
+- `icon-paper-plane-empty` - `\f1d9`
+- `icon-map-pin` - `\f276`
 
 To use an icon:
 ```
