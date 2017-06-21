@@ -52,19 +52,20 @@ header {
   @include grid-column(12);
   width: calc(100% - 60px);
   margin-left: 0;
-  height: 60px;
+  height: 102px;
   padding: 55px 0 0 60px;
 
   #logo {
     display: block;
     float: left;
-    width: 185px;
-    height: 62px;
+    width: 225px;
+    height: 102px;
   }
 
   nav {
     float: left;
     margin-left: 40px;
+    margin-top: 25px;
 
     ul {
       list-style-type: none;
