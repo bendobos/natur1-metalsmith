@@ -10,6 +10,13 @@
     font-size: 1.1em;
     line-height: 1.6em;
     margin: 0;
+
+    &.hero-headline {
+      color: #000;
+      font-size: 1.6em;
+      max-width: 22em;
+      margin-bottom: 1em;
+    }
   }
 }
 
