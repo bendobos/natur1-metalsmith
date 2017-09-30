@@ -7,10 +7,7 @@
   <div id="wrapper">
     {{> header }}
 
-    <section id="hero">
-      <div data-markdown><p class="hero-headline">{{ data.entries.0.fields.heroHeadline }}</p></div>
-      <p data-markdown>{{ data.entries.0.fields.heroText }}</p>
-    </section>
+    <section id="hero" data-markdown><p class="hero-headline">{{ data.entries.0.fields.heroHeadline }}</p><p>{{ data.entries.0.fields.heroText }}</p></section>
 
     <img src="assets/curved-lines.svg" class="curved-lines inline-svg" width="100%" viewBox="0 0 1400 192" preserveAspectRatio="none" />
 

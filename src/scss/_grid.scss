@@ -25,12 +25,9 @@ main {
 
 #top-bar {
   @include grid-column(12);
-  width: calc(100% - 20px);
-  margin-left: 0;
-  height: 40px;
+  @include grid-collapse;
   font-size: 13px;
   line-height: 18px;
-  padding-left: 20px;
   background: $light-grey;
   border-bottom: 2px solid $ci-green;
 
