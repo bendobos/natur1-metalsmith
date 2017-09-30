@@ -50,22 +50,16 @@ main {
 
 header {
   @include grid-column(12);
-  width: calc(100% - 60px);
-  margin-left: 0;
-  height: 102px;
-  padding: 55px 0 0 60px;
+  display: flex;
+  align-items: center;
+  margin-top: $gutter-vertical;
 
   #logo {
-    display: block;
-    float: left;
-    width: 225px;
-    height: 102px;
+    @include grid-column(3 of 12);
   }
 
   nav {
-    float: left;
-    margin-left: 40px;
-    margin-top: 25px;
+    @include grid-column(9 of 12);
 
     ul {
       list-style-type: none;
@@ -99,10 +93,12 @@ header {
 
 #hero {
   @include grid-column(12);
-  width: calc(100% - 60px);
-  padding: 40px 0px 0 60px;
-  margin-left: 0;
+
+  p {
+    @include grid-column(12);
+  }
 }
+
 .curved-lines {
   margin-top: -50px;
   width: 100%;
