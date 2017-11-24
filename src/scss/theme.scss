@@ -14,3 +14,20 @@ body {
     font-family: "Varela Round", sans-serif;
     //@include grid-visual;
 }
+
+@keyframes cd-close-1 {
+    0%, 50% {
+      -webkit-transform: rotate(0);
+      -moz-transform: rotate(0);
+      -ms-transform: rotate(0);
+      -o-transform: rotate(0);
+      transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }

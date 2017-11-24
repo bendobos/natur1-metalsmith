@@ -21,13 +21,70 @@ Used to only use the watcher when `NODE_ENV` is other than `production`
 ## Icons
 A special set of [Fontawesome](http://fontawesome.io/) is used. It was generated using [Fontello](http://fontello.com/) and needs to be updated every time a new icon is needed.
 
-Icons currently available:
+Icons currently used:
 - `icon-phone` - `\e800`
 - `icon-mail` - `\e801`
 - `icon-clock` - `\e802`
 - `icon-ok-circled` - `\e803`
 - `icon-paper-plane-empty` - `\f1d9`
 - `icon-map-pin` - `\f276`
+- `icon-menu` - `\f0c9`
+
+JSON-config for Fontello:
+```
+{
+  "name": "",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "9f7e588c66cfd6891f6f507cf6f6596b",
+      "css": "phone",
+      "code": 59392,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "bf882b30900da12fca090d9796bc3030",
+      "css": "mail",
+      "code": 59393,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "598a5f2bcf3521d1615de8e1881ccd17",
+      "css": "clock",
+      "code": 59394,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "43ab845088317bd348dee1d975700c48",
+      "css": "ok-circled",
+      "code": 59395,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "4b2321afcbe0505a70b80abd5c25e09b",
+      "css": "paper-plane-empty",
+      "code": 61913,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "8b4584b43f9858f2d38b3741ecdfe15c",
+      "css": "map-pin",
+      "code": 62070,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "559647a6f430b3aeadbecd67194451dd",
+      "css": "menu",
+      "code": 61641,
+      "src": "fontawesome"
+    }
+  ]
+}
+```
 
 To use an icon:
 ```

@@ -64,19 +64,43 @@ header {
     @include grid-media($desktop-small-and-up) {
         @include grid-column(12);
     }
+
     display: flex;
     align-items: center;
     margin-top: $gutter-vertical;
+
     #logo {
         @include grid-media($phone-portrait-and-up) {
             @include grid-column(6 of 6);
+            margin-top: 40px;
         }
         @include grid-media($desktop-small-and-up) {
             @include grid-column(3 of 12);
             margin-left: 0 !important;
         }
     }
-    nav {
+
+    .mobile-menu-button {
+        @include grid-media($phone-portrait-and-up) {
+            display: flex;
+        }
+        @include grid-media($desktop-small-and-up) {
+            display: none;
+        }
+
+        justify-content: center;
+        height: 44px;
+        width: 44px;
+        border-radius: 50%;
+        position: fixed;
+        top: 5px;
+        left: 5px;
+        border: none;
+        background-color: $ci-green;
+        opacity: 0.7;
+    }
+
+    nav.desktop {
         @include grid-media($phone-portrait-and-up) {
             display: none;
         }
@@ -108,7 +132,64 @@ header {
             }
         }
     }
+
+    nav.mobile {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100%;
+        background: $ci-green;
+        visibility: hidden;
+        animation: slideOutLeft 0.6s;
+        @include box_shadow(5);
+        
+        &.is-visible {
+            visibility: visible;
+            animation: slideInLeft 0.6s;
+        }
+
+        @keyframes slideInLeft {
+            from {
+              transform: translate3d(-100%, 0, 0);
+              visibility: visible;
+            }
+          
+            to {
+              transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes slideOutLeft {
+            from {
+              transform: translate3d(0, 0, 0);
+            }
+          
+            to {
+              visibility: hidden;
+              transform: translate3d(-100%, 0, 0);
+            }
+          }
+    }
+    .fade-screen {
+        visibility: hidden;
+        position: fixed;
+        z-index: 9;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: black; 
+        opacity: 0.3;
+        
+        &.is-visible {
+            visibility: visible;
+        }
+    }
+   
 }
+
 
 #hero {
     @include grid-container;

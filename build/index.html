@@ -8,6 +8,8 @@
     
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" type="text/css" href="css/theme.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/nav-mobile.js"></script>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -30,7 +32,20 @@
             </a>
           </div>
         
-          <nav>
+          <button class="mobile-menu-button"><i class="icon icon-menu"></i></button>
+          <nav class="mobile">
+            <ul>
+              <li>
+                Bla
+              </li>
+              <li>
+                Bla2
+              </li>
+            </ul>
+          </nav>
+          <div class="fade-screen"></div>
+        
+          <nav class="desktop">
             <ul>
                 <li class="active"><a href="/">Home</a></li>
             
@@ -39,6 +54,7 @@
                 <li><a href="/kontakt">Kontakt</a></li>
             </ul>
           </nav>
+          
         </header>
 
         <section id="hero"><div class="hero-content"><p class="hero-headline">Das beste Verst&#xE4;ndnis f&#xFC;r Ihre Beschwerden
