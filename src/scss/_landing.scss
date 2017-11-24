@@ -9,11 +9,11 @@
     }
 
     #map {
-      @include grid-column(12);
+      @include grid-container;
       @include grid-collapse;
-      width: calc(100% + 160px);
+
+      //width: calc(100% + 160px);
       height: 400px;
-      margin-left: -80px;
       padding-top: 50px;
       background: $light-grey;
 
@@ -39,22 +39,49 @@
       width: 100%;
       min-height: 300px;
       margin: 50px 0 0 -80px;
-      padding: 0 80px 0 80px;
+      padding: 25px 80px 25px 80px;
 
       &.green {
         background-color: $ci-green;
       }
 
       .circles {
-        display: flex;
+        /* display: flex;
         align-items: center;
-        flex-wrap: wrap;
+        flex-wrap: wrap; */
+
+        @include grid-container;
+        width: 100%;
 
         .circle-wrapper {
-          margin-right: 50px;
-          width: 150px;
+          @include grid-media($phone-portrait-and-up) {
+            @include grid-column(3 of 6);
+          }
+
+          @include grid-media($tablet-portrait-and-up) {
+            @include grid-column(4 of 12)
+          }
+
+          @include grid-media($desktop-small-and-up) {
+            @include grid-column(2.4 of 12);
+          }
 
           .circle-image {
+            @include grid-media($phone-portrait-and-up) {
+              height: 100px;
+              width: 100px;
+            }
+
+            @include grid-media($tablet-portrait-and-up) {
+              height: 130px;
+              width: 130px;
+            }
+
+            @include grid-media($desktop-small-and-up) {
+              height: 150px;
+              width: 150px;
+            }
+
             height: 140px;
             width: 140px;
             border-radius: 50%;
@@ -63,8 +90,6 @@
             transition: all 0.5s;
 
             &:hover {
-              height: 150px;
-              width: 150px;
               box-shadow: $shadow-hover;
             }
           }
@@ -74,11 +99,20 @@
 
     #profile-card {
       @include card;
-      @include grid-column(6);
-      @include grid-shift(3);
 
-      ul {
+      @include grid-media($phone-portrait-and-up) {
+        @include grid-column(6 of 6);
+        ul {
+          padding: 0 20px 0 20px;
+      }
+      }
+
+      @include grid-media($tablet-portrait-and-up) {
+        @include grid-column(10 of 12);
+        @include grid-shift(1);
+        ul {
           padding: 0 60px 0 60px;
+      }
       }
 
       #circle-avatar {

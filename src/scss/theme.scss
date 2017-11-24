@@ -10,8 +10,7 @@
 @import '_contact.scss';
 @import '_footer.scss';
 @import url('https://fonts.googleapis.com/css?family=Nunito|Varela+Round');
-
 body {
-  font-family: "Varela Round", sans-serif;
-  @include grid-visual;
+    font-family: "Varela Round", sans-serif;
+    //@include grid-visual;
 }

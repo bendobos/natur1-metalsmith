@@ -1,84 +1,82 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  {{> head}}
+    {{> head}}
 </head>
+
 <body>
-  <div id="wrapper">
-    {{> header }}
+    <div id="wrapper">
+        {{> header }}
 
-    <section id="hero" data-markdown><p class="hero-headline">{{ data.entries.0.fields.heroHeadline }}</p><p>{{ data.entries.0.fields.heroText }}</p></section>
+        <section id="hero" data-markdown><div class="hero-content"><p class="hero-headline">{{ data.entries.0.fields.heroHeadline }}</p><p>{{ data.entries.0.fields.heroText }}</p></div></section>
 
-    <img src="assets/curved-lines.svg" class="curved-lines inline-svg" width="100%" viewBox="0 0 1400 192" preserveAspectRatio="none" />
+        <img src="assets/curved-lines.svg" class="curved-lines inline-svg" width="100%" viewBox="0 0 1400 192" preserveAspectRatio="none" />
 
-    <main>
-      <section id="content">
-        {{#each data.entries.0.fields.contentBlocks }}
-          <section class="home-section">
-            <h1>{{ fields.title }}</h1>
-            <p data-markdown>{{ fields.content }}</p>
+        <main>
+            <section id="content">
+                {{#each data.entries.0.fields.contentBlocks }}
+                <section class="home-section">
+                    <h1>{{ fields.title }}</h1>
+                    <p data-markdown>{{ fields.content }}</p>
 
-            {{#is fields.title 'Unsere Spezialisierungen'}}
-              <div class="full-width-container green">
-                 <div class="circles">
-                     <div class="circle-wrapper">
-                         <img src="assets/osteopathie.png" alt="Osteopathie" class="circle-image">
-                         <h2>Osteopathie</h2>
-                     </div>
-                     <div class="circle-wrapper">
-                         <img src="assets/akupunktur.png" alt="Akupunktur" class="circle-image">
-                         <h2>Akupunktur / TCM</h2>
-                     </div>
-                     <div class="circle-wrapper">
-                         <img src="assets/homoeopathie.png" alt="Homoeopathie" class="circle-image">
-                         <h2>Homöopathie</h2>
-                     </div>
-                     <div class="circle-wrapper">
-                         <img src="assets/bioresonanz.png" alt="Bioresonanz" class="circle-image">
-                         <h2>Bioresonanz</h2>
-                     </div>
-                     <div class="circle-wrapper">
-                         <img src="assets/schmerztherapien.png" alt="Schmerztherapie" class="circle-image">
-                         <h2>Schmerztherapie</h2>
-                     </div>
-                 </div>
-             </div>
-             <a href="/ueber-uns" class="button">Erfahren Sie mehr über unsere Leistungen</a>
-            {{/is}}
+                    {{#is fields.title 'Unsere Spezialisierungen'}}
+                    <div class="full-width-container green">
+                        <div class="circles">
+                            <div class="circle-wrapper">
+                                <img src="assets/osteopathie.png" alt="Osteopathie" class="circle-image">
+                                <h2>Osteopathie</h2>
+                            </div>
+                            <div class="circle-wrapper">
+                                <img src="assets/akupunktur.png" alt="Akupunktur" class="circle-image">
+                                <h2>Akupunktur / TCM</h2>
+                            </div>
+                            <div class="circle-wrapper">
+                                <img src="assets/homoeopathie.png" alt="Homoeopathie" class="circle-image">
+                                <h2>Homöopathie</h2>
+                            </div>
+                            <div class="circle-wrapper">
+                                <img src="assets/bioresonanz.png" alt="Bioresonanz" class="circle-image">
+                                <h2>Bioresonanz</h2>
+                            </div>
+                            <div class="circle-wrapper">
+                                <img src="assets/schmerztherapien.png" alt="Schmerztherapie" class="circle-image">
+                                <h2>Schmerztherapie</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/ueber-uns" class="button">Erfahren Sie mehr über unsere Leistungen</a> {{/is}} {{#is fields.title 'Über Natur1'}}
+                    <div id="profile-card">
+                        <img src="assets/michaelclauss.png" alt="Therapeut Michael Clauss" id="circle-avatar">
+                        <h1>Michael D. Clauss</h1>
+                        <ul>
+                            <li>Praktiziert seit 1987 als Heilpraktiker, klassischer Homöopath und Osteopath ganzheitliche, naturheilkundliche Verfahren.</li>
+                            <li>Gründete 1991 das Naturheilzentrum Natur1 in Düsseldorf, zentral gelegen direkt am Carlsplatz.</li>
+                            <li>Ausbildung in klassischer Homöopathie, Akupunktur, traditionell chinesischer Medizin, Chiropraktik und vielem mehr.</li>
+                        </ul>
+                        <div style="text-align: center;">
+                            <a href="/ueber-uns" class="button">Mehr über mich</a>
+                        </div>
+                    </div>
+                    {{/is}} {{#is fields.title 'So finden Sie uns'}}
+                    <div id="map">
+                        <div id="overlay" onClick="style.pointerEvents='none'"></div>
+                        <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB7ny441Z74KpZVzpzL81H1WNtfIFWEMPc&q=Carlsplatz+18,Düsseldorf" allowfullscreen></iframe>
+                    </div>
+                    {{/is}}
 
-            {{#is fields.title 'Über Natur1'}}
-              <div id="profile-card">
-                  <img src="assets/michaelclauss.png" alt="Therapeut Michael Clauss" id="circle-avatar">
-                  <h1>Michael D. Clauss</h1>
-                  <ul>
-                      <li>Praktiziert seit 1987 als Heilpraktiker, klassischer Homöopath und Osteopath ganzheitliche, naturheilkundliche Verfahren.</li>
-                      <li>Gründete 1991 das Naturheilzentrum Natur1 in Düsseldorf, zentral gelegen direkt am Carlsplatz.</li>
-                      <li>Ausbildung in klassischer Homöopathie, Akupunktur, traditionell chinesischer Medizin, Chiropraktik und vielem mehr.</li>
-                  </ul>
-                  <div style="text-align: center;">
-                      <a href="/ueber-uns" class="button">Mehr über mich</a>
-                  </div>
-              </div>
-            {{/is}}
+                </section>
+                {{/each}}
+            </section>
+        </main>
 
-            {{#is fields.title 'So finden Sie uns'}}
-              <div id="map">
-                <div id="overlay" onClick="style.pointerEvents='none'"></div>
-                <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB7ny441Z74KpZVzpzL81H1WNtfIFWEMPc&q=Carlsplatz+18,Düsseldorf" allowfullscreen></iframe>
-              </div>
-            {{/is}}
+        <img src="assets/curved-lines.svg" class="curved-lines footer inline-svg" width="100%" viewBox="0 0 1400 192" preserveAspectRatio="none" />
 
-          </section>
-        {{/each}}
-      </section>
-    </main>
-
-    <img src="assets/curved-lines.svg" class="curved-lines footer inline-svg" width="100%" viewBox="0 0 1400 192" preserveAspectRatio="none" />
-
-    <footer>
-      {{>footer }}
-    </footer>
-  </div>
+        <footer>
+            {{>footer }}
+        </footer>
+    </div>
 
 </body>
+
 </html>
