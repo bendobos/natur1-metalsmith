@@ -142,12 +142,11 @@ header {
         height: 100%;
         background: $ci-green;
         visibility: hidden;
-        animation: slideOutLeft 0.6s;
         @include box_shadow(5);
         
         &.is-visible {
             visibility: visible;
-            animation: slideInLeft 0.6s;
+            animation: slideInLeft 0.4s;
         }
 
         @keyframes slideInLeft {
@@ -160,18 +159,8 @@ header {
               transform: translate3d(0, 0, 0);
             }
         }
-
-        @keyframes slideOutLeft {
-            from {
-              transform: translate3d(0, 0, 0);
-            }
-          
-            to {
-              visibility: hidden;
-              transform: translate3d(-100%, 0, 0);
-            }
-          }
     }
+
     .fade-screen {
         visibility: hidden;
         position: fixed;
@@ -185,6 +174,17 @@ header {
         
         &.is-visible {
             visibility: visible;
+            animation: fadeIn 0.8s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            
+            to {
+                opacity: 0.3;
+            }
         }
     }
    
