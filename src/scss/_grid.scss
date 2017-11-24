@@ -159,6 +159,75 @@ header {
               transform: translate3d(0, 0, 0);
             }
         }
+
+        .mobile-menu-content {
+            display: flex;
+            flex-direction: column;
+            padding-top: 35px;
+
+            .mobile-menu-close-button {
+                display: flex;
+                position: absolute;
+                justify-content: center;
+                height: 44px;
+                width: 44px;
+                top: 5px;
+                left: 5px;
+                border: none;
+                opacity: 0.7;
+                transition: none;
+            }
+
+            .meta {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 35px;
+                text-align: center;
+
+                i, span {
+                    text-shadow: 0px 1px 0px rgba(255,255,255,.5);                    
+                }
+
+                i {
+                    font-size: 1.4em;
+                    margin-bottom: 10px;
+                    color: $dark-grey;
+                }
+
+                span {
+                    color: black;
+                }
+            }
+
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+
+                li {
+                    border-bottom: 1px solid $ci-green-dark;
+                    border-top: 1px solid $ci-green-dark;
+                    padding: 20px;
+                    margin-top: -1px;
+                    text-decoration: none;
+
+                    &.active {
+                        background: $ci-green-dark;
+                        color: black;
+                    }
+                    
+                }
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                    text-shadow: 0px 1px 0px rgba(255,255,255,.3);                                        
+                    font-size: 1.2em;
+                }
+
+            }
+        }
     }
 
     .fade-screen {

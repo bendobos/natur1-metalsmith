@@ -29,11 +29,12 @@ Icons currently used:
 - `icon-paper-plane-empty` - `\f1d9`
 - `icon-map-pin` - `\f276`
 - `icon-menu` - `\f0c9`
+- `icon-cancel` - ``
 
 JSON-config for Fontello:
 ```
 {
-  "name": "",
+  "name": "fontawesome",
   "css_prefix_text": "icon-",
   "css_use_suffix": false,
   "hinting": true,
@@ -80,6 +81,12 @@ JSON-config for Fontello:
       "uid": "559647a6f430b3aeadbecd67194451dd",
       "css": "menu",
       "code": 61641,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "5211af474d3a9848f67f945e2ccaf143",
+      "css": "cancel",
+      "code": 59396,
       "src": "fontawesome"
     }
   ]

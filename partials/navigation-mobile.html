@@ -1,0 +1,34 @@
+<section class="mobile-menu-content">
+    <button class="mobile-menu-close-button"><i class="icon icon-cancel"></i></button>
+    <div class="meta">
+        <i class="icon icon-phone"></i>
+        <span>0211 / 49 01 46</span>
+    </div>
+    <div class="meta">
+        <i class="icon icon-map-pin"></i>
+        <span>
+            Carlsplatz 18
+            <br /> 40213 Düsseldorf
+        </span>
+    </div>
+
+    <ul>
+        {{#is pageTitle 'index'}}
+            <a href="/"><li class="active">Home</li></a>
+        {{else}}
+            <a href="/"><li>Home</li></a>
+        {{/is}} 
+        
+        {{#is pageTitle 'ueber-uns'}}
+            <a href="/ueber-uns"><li class="active">Über uns</li></a>
+        {{else}}
+            <a href="/ueber-uns"><li>Über uns</li></a>
+        {{/is}} 
+        
+        {{#is pageTitle 'kontakt'}}
+            <a href="/kontakt"><li class="active">Kontakt</li></a>
+        {{else}}
+            <a href="/kontakt"><li>Kontakt</li></a>
+        {{/is}}
+    </ul>
+</section>
