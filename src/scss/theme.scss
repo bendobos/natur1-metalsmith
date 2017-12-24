@@ -1,6 +1,7 @@
 @import '../../node_modules/bourbon-neat/core/_neat';
 @import 'fontawesome.scss';
 @import '_variables.scss';
+@import 'mixins.scss';
 @import '_grid.scss';
 @import '_typography.scss';
 @import '_interactive.scss';
@@ -8,8 +9,29 @@
 @import '_about.scss';
 @import '_contact.scss';
 @import '_footer.scss';
+@import 'components/profile-card.scss';
+@import 'components/content-section.scss';
+@import 'components/contact-card.scss';
 @import url('https://fonts.googleapis.com/css?family=Nunito|Varela+Round');
 
 body {
-  font-family: "Varela Round", sans-serif;
+    font-family: "Varela Round", sans-serif;
+    //@include grid-visual;
 }
+
+@keyframes cd-close-1 {
+    0%, 50% {
+      -webkit-transform: rotate(0);
+      -moz-transform: rotate(0);
+      -ms-transform: rotate(0);
+      -o-transform: rotate(0);
+      transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }

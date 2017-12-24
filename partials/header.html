@@ -1,6 +1,22 @@
-<a href="/">
-  <img src="assets/logo.svg" id="logo" alt="Natur1 Naturheilzentrum" />
-</a>
-<nav>
-  {{> navigation}}
-</nav>
+<section id="top-bar">
+  {{> top_bar }}
+</section>
+
+<header>
+  <div id="logo">
+    <a href="/">
+      <img src="assets/logo.svg" alt="Natur1 Naturheilzentrum" />
+    </a>
+  </div>
+
+  <button class="mobile-menu-button"><i class="icon icon-menu"></i></button>
+  <nav class="mobile">
+    {{> navigation-mobile }}
+  </nav>
+  <div class="fade-screen"></div>
+
+  <nav class="desktop">
+    {{> navigation}}
+  </nav>
+  
+</header>

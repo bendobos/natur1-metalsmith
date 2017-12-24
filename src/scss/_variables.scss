@@ -1,6 +1,7 @@
 /* Colors */
 $ci-green: #9CC51E;
 $ci-green-dark: #6F8D13;
+$dark-grey: #34383A;
 
 $medium-grey: #D6D6D6;
 $light-grey: #F5F5F5;
@@ -18,42 +19,24 @@ $shadow-hover: 0 7px 25px 0 rgba(0,0,0,0.8);
 $shadow-light: 0 7px 25px 0 rgba(0,0,0,0.15);
 $shadow-light-hover: 0 7px 25px 0 rgba(0,0,0,0.35);
 
+/* Spacings */
+$gutter-vertical: 20px;
 
-/* Mixins */
-@mixin circle-image {
-  height: 140px;
-  width: 140px;
-  border-radius: 50%;
-  border: 9px solid white;
-  box-shadow: $shadow-normal;
-  transition: all 0.5s;
-}
+/* Responsive */
+$phone-portrait-and-up: (
+    columns: 6,
+    gutter: 10px,
+    media: 320px,
+);
 
-@mixin card {
-  @include box_shadow(2);
-  clear: both;
-  margin: 0 auto;
-  background: $super-light-grey;
-  margin-top: 80px;
-  margin-bottom: 60px;
-  border-radius: 5px;
-  transition: all 0.5s;
+$tablet-portrait-and-up: (
+    columns: 12,
+    gutter: 20px,
+    media: 768px,
+);
 
-  &:hover {
-    @include box_shadow(3);
-  }
-}
-
-@mixin box_shadow ($level) {
-  @if $level == 1 {
-      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  } @else if $level == 2 {
-      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  } @else if $level == 3 {
-      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  } @else if $level == 4 {
-      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  } @else if $level == 5 {
-      box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-  }
-}
+$desktop-small-and-up: (
+    columns: 12,
+    gutter: 20px,
+    media: 1024px,
+)

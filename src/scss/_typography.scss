@@ -6,10 +6,9 @@
 
   p {
     color: $hero-text;
-    max-width: 800px;
+    //max-width: 800px;
     font-size: 1.1em;
     line-height: 1.6em;
-    margin: 0;
 
     &.hero-headline {
       color: #000;
@@ -22,23 +21,26 @@
 
 #content {
   section {
-    &.about {
+    &.progress-list {
       ul {
-        position: relative;
-        padding-top: 0.8em;
-        padding-bottom: 0.8em;
-
         &:before {
           content: '';
           width: 4px;
           background: $medium-grey;
-          height: 100%;
+          height: calc(100% - 40px);
           position: absolute;
           left: 41px;
-          top: 0;
+          top: 20px;
         }
       }
     }
+
+    ul {
+      position: relative;
+      padding-top: 0.8em;
+      padding-bottom: 0.8em;
+    }
+    
 
     h1 {
       font-size: 1.6em;
@@ -103,6 +105,13 @@ footer {
 #profile-card {
   h1 {
     text-align: center;
+    max-width: initial;
+  }
+
+  p {
+    max-width: initial;
+    line-height: 2em;
+    margin-bottom: 2em;
   }
 }
 

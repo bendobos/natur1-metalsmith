@@ -1,47 +1,19 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   {{> head}}
-  <script type="text/javascript" src="js/jquery.js"></script>
 </head>
+
 <body>
   <div id="wrapper">
-    <section id="top-bar">
-      {{> top_bar }}
-    </section>
+    {{> header}}
 
-    <header>
-      {{> header}}
-    </header>
-
-    <main>
-      <section id="content">
+    <section id="hero">
+      <div class="hero-content">
         <div class="contact-card">
           <div class="card-content">
-            <div id="left">
-              <h1>Schreiben Sie uns!</h1>
-              <p>Haben Sie weitere Fragen? Wir freuen uns darauf, von Ihnen zu hören.
-                Füllen Sie das untenstehende Formular aus und wir bearbeiten Ihr Anliegen schnellstmöglich.<br />
-                <strong>Bitte nutzen Sie dieses Formular nicht zur Terminabsprache &mdash; rufen Sie uns dafür einfach an.</strong>
-              </p>
-              <form name="kontakt" action="" id="contact-form">
-                <p class="button-row">
-                 <input type="text" name="name" placeholder="Ihr Name">
-                 <input type="email" name="email" placeholder="E-Mail Adresse">
-                 <input type="phone" name="phone" placeholder="Telefonnummer">
-               </p>
-               <p>
-                 <textarea name="message" class="textarea" placeholder="Ihre Nachricht an uns"></textarea>
-               </p>
-               <p id="button-area">
-                 <input type="hidden" name="form-name" value="kontakt">
-                 <button class="send">Mail absenden</button>
-                 <img src="assets/ripple.svg" alt="Senden..." class="loading hidden" inline-svg />
-                 <span class="success hidden"><i class="icon icon-ok-circled"></i> E-Mail gesendet</span>
-               </p>
-              </form>
-            </div>
-            <div id="right">
+            <div id="meta">
               <div>
                 <i class="icon icon-phone"></i>
                 <p>0211 / 49 01 46</p>
@@ -66,9 +38,38 @@
                 </p>
               </div>
             </div>
+            <div id="form">
+              <h1>Schreiben Sie uns!</h1>
+              <p>Haben Sie weitere Fragen? Wir freuen uns darauf, von Ihnen zu hören.
+                Füllen Sie das untenstehende Formular aus und wir bearbeiten Ihr Anliegen schnellstmöglich.<br />
+                <strong>Bitte nutzen Sie dieses Formular nicht zur Terminabsprache &mdash; rufen Sie uns dafür einfach an.</strong>
+              </p>
+              <form name="kontakt" action="" id="contact-form">
+                <p class="button-row">
+                  <input type="text" name="name" placeholder="Ihr Name">
+                  <input type="email" name="email" placeholder="E-Mail Adresse">
+                  <input type="phone" name="phone" placeholder="Telefonnummer">
+                </p>
+                <p>
+                  <textarea name="message" class="textarea" placeholder="Ihre Nachricht an uns"></textarea>
+                </p>
+                <p id="button-area">
+                  <input type="hidden" name="form-name" value="kontakt">
+                  <button class="send">Mail absenden</button>
+                  <img src="assets/ripple.svg" alt="Senden..." class="loading hidden" inline-svg />
+                  <span class="success hidden"><i class="icon icon-ok-circled"></i> E-Mail gesendet</span>
+                </p>
+              </form>
+            </div>
           </div>
-        </div>
+        </div>      
+      </div>
+    </section>
 
+    <img src="assets/curved-lines.svg" class="curved-lines inline-svg" width="100%" viewBox="0 0 1400 192" preserveAspectRatio="none" />
+    
+    <main>
+      <section id="content">
         <div class="contact-card">
           <div id="map">
             <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB7ny441Z74KpZVzpzL81H1WNtfIFWEMPc&q=Carlsplatz+18,Düsseldorf" allowfullscreen></iframe>
@@ -77,7 +78,7 @@
       </section>
     </main>
 
-    <img src="assets/curved-lines.svg" class="curved-lines footer inline-svg" />
+    <img src="assets/curved-lines.svg" class="curved-lines footer inline-svg" width="100%" viewBox="0 0 1400 192" preserveAspectRatio="none" />
 
     <footer>
       {{> footer }}

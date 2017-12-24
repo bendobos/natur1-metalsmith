@@ -1,124 +1,275 @@
-html, body {
-  margin: 0;
-  padding: 0;
+html,
+body {
+    margin: 0;
+    padding: 0;
 }
 
 main {
-  @include grid-container;
-
-  #content {
-    @include grid-column(12);
-    @include grid-collapse;
-  }
+    margin-top: -5px;
+    @include grid-container;
+    /* #content {
+        @include grid-media($phone-portrait-and-up) {
+            @include grid-column(6);
+        }
+        @include grid-media($desktop-small-and-up) {
+            @include grid-column(12);
+        }
+        @include grid-collapse;
+    } */
 }
 
 #wrapper {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 #content {
-  section {
-    padding: 20px 100px 40px 100px;
-    clear: both;
-  }
+    background: $light-grey;
+    @include grid-container;
 }
 
 #top-bar {
-  @include grid-column(12);
-  width: calc(100% - 20px);
-  margin-left: 0;
-  height: 40px;
-  font-size: 13px;
-  line-height: 18px;
-  padding-left: 20px;
-  background: $light-grey;
-  border-bottom: 2px solid $ci-green;
-
-  ul {
-    li {
-      list-style: none;
-      float: left;
-      margin-right: 20px;
-
-      .icon {
-        color: $ci-green;
-        margin-right: 5px;
-      }
+    @include grid-media($phone-portrait-and-up) {
+        display: none;
     }
-  }
+    @include grid-media($desktop-small-and-up) {
+        @include grid-column(12);
+        @include grid-collapse;
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+        line-height: 18px;
+        background: $light-grey;
+        border-bottom: 2px solid $ci-green;
+    }
+    ul {
+        li {
+            list-style: none;
+            float: left;
+            margin-right: 20px;
+            .icon {
+                color: $ci-green;
+                margin-right: 5px;
+            }
+        }
+    }
 }
 
 header {
-  @include grid-column(12);
-  width: calc(100% - 60px);
-  margin-left: 0;
-  height: 102px;
-  padding: 55px 0 0 60px;
-
-  #logo {
-    display: block;
-    float: left;
-    width: 225px;
-    height: 102px;
-  }
-
-  nav {
-    float: left;
-    margin-left: 40px;
-    margin-top: 25px;
-
-    ul {
-      list-style-type: none;
-      position: relative;
-
-      li {
-        float: left;
-        padding: 10px 15px 10px 15px;
-        margin-right: 20px;
-        font-size: 18px;
-        top: 25%;
-        transform: translateY(-25%);
-
-        &.active {
-          border: 1px solid $ci-green;
-          border-radius: 100px;
-
-          a {
-            color: black;
-          }
-        }
-
-        a {
-          text-decoration: none;
-          color: $nav-grey;
-        }
-      }
+    @include grid-media($phone-portrait-and-up) {
+        @include grid-column(6);
     }
-  }
+    @include grid-media($desktop-small-and-up) {
+        @include grid-column(12);
+    }
+
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+
+    #logo {
+        @include grid-media($phone-portrait-and-up) {
+            @include grid-column(6 of 6);
+        }
+        @include grid-media($desktop-small-and-up) {
+            @include grid-column(3 of 12);
+            margin-left: 0 !important;
+        }
+    }
+
+    .mobile-menu-button {
+        @include grid-media($phone-portrait-and-up) {
+            display: flex;
+        }
+        @include grid-media($desktop-small-and-up) {
+            display: none;
+        }
+
+        justify-content: center;
+        height: 44px;
+        width: 44px;
+        border-radius: 50%;
+        position: fixed;
+        top: 5px;
+        left: 5px;
+        border: none;
+        background-color: $ci-green;
+        opacity: 0.7;
+    }
+
+    nav.desktop {
+        @include grid-media($phone-portrait-and-up) {
+            display: none;
+        }
+        @include grid-media($desktop-small-and-up) {
+            @include grid-column(9 of 12);
+            display: block;
+        }
+        ul {
+            list-style-type: none;
+            position: relative;
+            li {
+                float: left;
+                padding: 10px 15px 10px 15px;
+                margin-right: 20px;
+                font-size: 18px;
+                top: 25%;
+                transform: translateY(-25%);
+                &.active {
+                    border: 1px solid $ci-green;
+                    border-radius: 100px;
+                    a {
+                        color: black;
+                    }
+                }
+                a {
+                    text-decoration: none;
+                    color: $nav-grey;
+                }
+            }
+        }
+    }
+
+    nav.mobile {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100%;
+        background: $ci-green;
+        visibility: hidden;
+        @include box_shadow(5);
+        
+        &.is-visible {
+            visibility: visible;
+            animation: slideInLeft 0.4s;
+        }
+
+        @keyframes slideInLeft {
+            from {
+              transform: translate3d(-100%, 0, 0);
+              visibility: visible;
+            }
+          
+            to {
+              transform: translate3d(0, 0, 0);
+            }
+        }
+
+        .mobile-menu-content {
+            display: flex;
+            flex-direction: column;
+            padding-top: 35px;
+
+            .mobile-menu-close-button {
+                display: flex;
+                position: absolute;
+                justify-content: center;
+                height: 44px;
+                width: 44px;
+                top: 5px;
+                left: 5px;
+                border: none;
+                opacity: 0.7;
+                transition: none;
+            }
+
+            .meta {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 35px;
+                text-align: center;
+
+                i, span {
+                    text-shadow: 0px 1px 0px rgba(255,255,255,.5);                    
+                }
+
+                i {
+                    font-size: 1.4em;
+                    margin-bottom: 10px;
+                    color: $dark-grey;
+                }
+
+                span {
+                    color: black;
+                }
+            }
+
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+
+                li {
+                    border-bottom: 1px solid $ci-green-dark;
+                    border-top: 1px solid $ci-green-dark;
+                    padding: 20px;
+                    margin-top: -1px;
+                    text-decoration: none;
+
+                    &.active {
+                        background: $ci-green-dark;
+                        color: black;
+                    }
+                    
+                }
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                    text-shadow: 0px 1px 0px rgba(255,255,255,.3);                                        
+                    font-size: 1.2em;
+                }
+
+            }
+        }
+    }
+
+    .fade-screen {
+        visibility: hidden;
+        position: fixed;
+        z-index: 9;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: black; 
+        opacity: 0.3;
+        
+        &.is-visible {
+            visibility: visible;
+            animation: fadeIn 0.8s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            
+            to {
+                opacity: 0.3;
+            }
+        }
+    }
+   
 }
+
 
 #hero {
-  @include grid-column(12);
-  width: calc(100% - 60px);
-  padding: 40px 0px 0 60px;
-  margin-left: 0;
+    @include grid-container;
+    .hero-content {
+        @include grid-column(12 of 12);
+    }
 }
+
 .curved-lines {
-  margin-top: -50px;
-  width: 100%;
-  height: 192px;
-
-  &.footer {
-    transform: scaleX(-1.1);
-    filter: FlipH;
-    margin-top: 50px;
-  }
-}
-
-footer {
-  @include grid-column(12);
-  @include grid-collapse;
-  background: $light-grey;
-  margin-top: -5px;
-  height: 100px;
+    margin-top: -50px;
+    width: 100%;
+    height: 192px;
+    &.footer {
+        transform: scaleX(-1.1);
+        filter: FlipH;
+        margin-top: 50px;
+    }
 }
