@@ -99,6 +99,7 @@
 
     #profile-card {
       @include card;
+      float: none !important;
 
       @include grid-media($phone-portrait-and-up) {
         @include grid-column(6 of 6);

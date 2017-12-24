@@ -1,0 +1,33 @@
+@import '../../../node_modules/bourbon-neat/core/_neat';
+@import '../mixins.scss';
+@import '../_variables.scss';
+
+#profile-card {
+    @include card;
+
+    @include grid-media($phone-portrait-and-up) {
+      @include grid-column(6 of 6);
+      ul, p {
+        padding: 0 20px 0 20px;
+      }
+    }
+
+    @include grid-media($tablet-portrait-and-up) {
+      @include grid-column(8 of 12);
+      @include grid-shift(2);
+      ul, p {
+        padding: 0 60px 0 60px;
+      }
+    }
+
+    #circle-avatar {
+      display: block;
+      height: 120px;
+      width: 120px;
+      border-radius: 50%;
+      border: 4px solid white;
+      box-shadow: $shadow-normal;
+      margin: 0 auto;
+      margin-top: -35px;
+    }
+  }

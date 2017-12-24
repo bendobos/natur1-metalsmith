@@ -1,0 +1,142 @@
+@import '../../../node_modules/bourbon-neat/core/_neat';
+@import '../mixins.scss';
+@import '../_variables.scss';
+
+.contact-card {
+    @include card;
+    width: 100%;
+
+    .card-content {
+      width: 100%;
+      display: flex;
+
+      @include grid-media($phone-portrait-and-up) {
+        flex-direction: column;
+      }
+
+      @include grid-media($tablet-portrait-and-up) {
+        flex-direction: row;
+      }
+
+      #form {
+        padding: 0 25px;
+
+        p {
+          color: $nav-grey;
+          line-height: 1.8em;
+
+          .loading {
+            height: 48px;
+          }
+
+          &#button-area {
+            height: 48px;
+            line-height: 48px;
+          }
+        }
+
+        .success {
+          color: $ci-green;
+          font-weight: bold;
+          font-size: 1.2em;
+        }
+
+        .hidden {
+          display: none;
+        }
+
+        #contact-form {
+          .button-row {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+          }
+        }
+      }
+
+      #meta {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        background: $ci-green;
+        padding: 25px 0 20px 0;
+
+        @include grid-media($phone-portrait-and-up) {
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;  
+        }
+
+        @include grid-media($tablet-portrait-and-up) {
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+          border-top-right-radius: 0px;
+          border-bottom-right-radius: 0px;
+        }
+
+        div {
+          i {
+            color: $ci-green-dark;
+            font-size: 2em;
+            text-shadow: 0px 1px 0px rgba(255,255,255,.5);
+            transition: all 0.5s;
+          }
+
+          p {
+            color: #34383A;
+          }
+
+          &:hover {
+            i {
+              color: #34383A;
+            }
+          }
+        }
+      }
+
+      #right {
+        @include grid-column(4);
+        margin-left: 40px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 4.5em 0 4.5em 0;
+        
+
+        div {
+          i {
+            color: $ci-green-dark;
+            font-size: 2em;
+            text-shadow: 0px 1px 0px rgba(255,255,255,.5);
+            transition: all 0.5s;
+          }
+
+          p {
+            color: #34383A;
+          }
+
+          &:hover {
+            i {
+              color: #34383A;
+            }
+          }
+        }
+      }
+    }
+
+    #map {
+      width: 100%;
+      height: 500px;
+      margin-top: -80px;
+
+      iframe {
+        width: 100%;
+        height: 500px;
+      }
+    }
+  }

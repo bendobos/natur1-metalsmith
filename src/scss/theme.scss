@@ -9,7 +9,11 @@
 @import '_about.scss';
 @import '_contact.scss';
 @import '_footer.scss';
+@import 'components/profile-card.scss';
+@import 'components/content-section.scss';
+@import 'components/contact-card.scss';
 @import url('https://fonts.googleapis.com/css?family=Nunito|Varela+Round');
+
 body {
     font-family: "Varela Round", sans-serif;
     //@include grid-visual;

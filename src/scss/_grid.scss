@@ -25,9 +25,6 @@ main {
 #content {
     background: $light-grey;
     @include grid-container;
-    .home-section {
-        @include grid-column(12);
-    }
 }
 
 #top-bar {
@@ -67,12 +64,11 @@ header {
 
     display: flex;
     align-items: center;
-    margin-top: $gutter-vertical;
+    margin-top: 50px;
 
     #logo {
         @include grid-media($phone-portrait-and-up) {
             @include grid-column(6 of 6);
-            margin-top: 40px;
         }
         @include grid-media($desktop-small-and-up) {
             @include grid-column(3 of 12);
@@ -276,17 +272,4 @@ header {
         filter: FlipH;
         margin-top: 50px;
     }
-}
-
-footer {
-    @include grid-media($phone-portrait-and-up) {
-        @include grid-column(6);
-    }
-    @include grid-media($desktop-small-and-up) {
-        @include grid-column(12);
-    }
-    @include grid-collapse;
-    background: $light-grey;
-    margin-top: -5px;
-    height: 100px;
 }
